@@ -42,6 +42,10 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
         TextView author;
         TextView stars;
         ImageView avatar;
+        TextView description;
+
+
+
 
         public ViewHolder(View itemView) {
 
@@ -51,12 +55,14 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
             author = itemView.findViewById(R.id.author);
             stars = itemView.findViewById(R.id.stars);
             avatar = itemView.findViewById(R.id.avatar);
+            description = itemView.findViewById(R.id.description);
         }
     }
 
     @Override
     public ViewHolder onCreateViewHolder(
             ViewGroup parent,
+
             int viewType) {
 
         View view =
@@ -78,18 +84,14 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
         Repository repo = list.get(position);
 
         holder.name.setText(repo.getName());
-
-        holder.author.setText(
-                repo.getOwner().getLogin()
-        );
-
-        holder.stars.setText(
-                "⭐ " + repo.getStars()
-        );
+        holder.description.setText(repo.getDescription() != null ? repo.getDescription() : "No description");
+        holder.author.setText(repo.getOwner().getLogin());
+        holder.stars.setText("⭐ " + repo.getStars());
 
         Glide.with(holder.avatar.getContext())
                 .load(repo.getOwner().getAvatarUrl())
                 .into(holder.avatar);
+
     }
 
     @Override

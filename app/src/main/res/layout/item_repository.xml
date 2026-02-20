@@ -1,62 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-
     xmlns:android="http://schemas.android.com/apk/res/android"
-
-    android:orientation="horizontal"
-
+    android:orientation="vertical"
     android:padding="16dp"
-
     android:layout_width="match_parent"
-
     android:layout_height="wrap_content">
 
-    <ImageView
-
-        android:id="@+id/avatar"
-
-        android:layout_width="100dp"
-
-        android:layout_height="100dp"/>
-
-    <LinearLayout
-
-        android:orientation="vertical"
-
-        android:layout_marginStart="16dp"
-
+    <!-- Nom du repo -->
+    <TextView
+        android:id="@+id/name"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repo name"/>
 
-        android:layout_height="wrap_content">
+    <!-- Description du repo -->
+    <TextView
+        android:id="@+id/description"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repo description ..."/>
 
+    <!-- Bas : avatar + owner + stars -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <!-- Avatar du propriétaire -->
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"/>
+
+        <!-- Nom du propriétaire -->
         <TextView
-
-            android:id="@+id/name"
-
-            android:textSize="18sp"
-
-            android:textStyle="bold"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"/>
-
-        <TextView
-
             android:id="@+id/author"
-
+            android:layout_marginStart="8dp"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="repo owner name"
+            android:textSize="14sp"/>
 
-            android:layout_height="wrap_content"/>
+        <!-- Espace flexible -->
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
 
+        <!-- Nombre d'étoiles -->
         <TextView
-
             android:id="@+id/stars"
-
             android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="wrap_content"
+            android:text="⭐ 123"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </LinearLayout>
