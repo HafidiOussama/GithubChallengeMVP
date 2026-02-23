@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.githubchallengemvp.R;
 import com.example.githubchallengemvp.data.model.Repository;
-import com.example.githubchallengemvp.data.remote.ApiClient;
+//import com.example.githubchallengemvp.data.remote.ApiClient;
 import com.example.githubchallengemvp.data.remote.ApiService;
 import com.example.githubchallengemvp.data.repository.GithubRepository;
 import com.example.githubchallengemvp.presenter.MainContract;
@@ -19,18 +19,26 @@ import com.example.githubchallengemvp.ui.adapter.RepositoryAdapter;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private RepositoryAdapter adapter;
-    private MainPresenter presenter;
+//    private MainPresenter presenter;
+
+    @Inject
+    MainPresenter presenter;
 
     // Pagination variables
     private int currentPage = 1;
     private boolean isLoading = false;
     private boolean isLastPage = false;
     private static final int PAGE_SIZE = 30;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +57,30 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         adapter = new RepositoryAdapter();
         recyclerView.setAdapter(adapter);
 
-        // Init Retrofit
-        ApiService apiService =
-                ApiClient.getRetrofit()
-                        .create(ApiService.class);
+        /// ///
+        ((MyApplication) getApplication())
+                .getAppComponent()
+                .inject(this);
 
-        GithubRepository repository =
-                new GithubRepository(apiService);
+        presenter.attachView(this);
 
-        presenter =
-                new MainPresenter(this, repository);
+
+
+
+
+//        // Init Retrofit
+//        ApiService apiService =
+//                ApiClient.getRetrofit()
+//                        .create(ApiService.class);
+//
+//        GithubRepository repository =
+//                new GithubRepository(apiService);
+//
+//        presenter =
+//                new MainPresenter(this, repository);
+
+
+
 
         // Load first page
         loadPage(1);
@@ -142,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         isLoading = false;
     }
+
 
     @Override
     public void showError(String message) {

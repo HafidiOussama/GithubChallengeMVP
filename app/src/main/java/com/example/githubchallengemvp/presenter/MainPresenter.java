@@ -9,11 +9,21 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import javax.inject.Inject;
 
 public class MainPresenter implements MainContract.Presenter {
 
     private MainContract.View view;
     private GithubRepository repository;
+
+    @Inject
+    public MainPresenter(GithubRepository repository) {
+        this.repository = repository;
+    }
+
+    public void attachView(MainContract.View view) {
+        this.view = view;
+    }
 
     public MainPresenter(
             MainContract.View view,
