@@ -10,6 +10,8 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 
+
+
 public class GithubRepository {
 
     private ApiService apiService;
@@ -46,5 +48,9 @@ public class GithubRepository {
 
         // 5. Exécuter la requête
         call.enqueue(callback);
+
+
     }
+
+
 }

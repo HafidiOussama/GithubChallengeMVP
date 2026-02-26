@@ -7,22 +7,16 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        targetSdk = 36
-        minSdk = 23
-    }
-
-
-
-
-
-    defaultConfig {
         applicationId = "com.example.githubchallengemvp"
         minSdk = 23
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
@@ -34,6 +28,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -41,7 +36,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -58,15 +52,17 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    // OkHttp (une seule version stable)
+    // OkHttp
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 
-    // Dagger 2 (UNE SEULE VERSION)
+    // Dagger 2
     implementation("com.google.dagger:dagger:2.51")
     annotationProcessor("com.google.dagger:dagger-compiler:2.51")
 
+    // Pagination
+    implementation("androidx.paging:paging-runtime:3.2.1")
 }

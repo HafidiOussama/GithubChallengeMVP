@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,7 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="?attr/colorSurface">
 
     <LinearLayout
         android:orientation="vertical"
@@ -14,25 +14,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Nom du repo -->
         <TextView
             android:id="@+id/name"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="?attr/colorOnSurface"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!-- Description -->
         <TextView
             android:id="@+id/description"
             android:textSize="14sp"
-            android:textColor="#666666"
+            android:textColor="?attr/colorOnSurface"
             android:layout_marginTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!-- Ligne du bas -->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_marginTop="12dp"
@@ -40,29 +37,25 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical">
 
-            <!-- Avatar -->
             <ImageView
                 android:id="@+id/avatar"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:scaleType="centerCrop"/>
 
-            <!-- Owner -->
             <TextView
                 android:id="@+id/author"
                 android:layout_marginStart="8dp"
                 android:textSize="14sp"
-                android:textColor="#444444"
+                android:textColor="?attr/colorOnSurface"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <!-- Spacer -->
             <View
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"/>
 
-            <!-- Stars -->
             <TextView
                 android:id="@+id/stars"
                 android:textSize="14sp"
@@ -73,5 +66,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </com.google.android.material.card.MaterialCardView>
