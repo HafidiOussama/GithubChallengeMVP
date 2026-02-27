@@ -5,7 +5,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 public interface ApiService {
-
+// APPELS HTTP
     @GET("search/repositories")
     Call<ApiResponse> getRepositories(
 

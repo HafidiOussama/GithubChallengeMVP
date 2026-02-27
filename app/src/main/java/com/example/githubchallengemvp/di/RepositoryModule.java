@@ -13,6 +13,7 @@ public class RepositoryModule {
 
     @Provides
     @Singleton
+    //utilise ApiService pour effectuer les appels réseau vers l’API GitHub
     GithubRepository provideGithubRepository(ApiService apiService) {
         return new GithubRepository(apiService);
     }

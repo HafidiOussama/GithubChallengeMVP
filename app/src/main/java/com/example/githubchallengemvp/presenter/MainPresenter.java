@@ -25,15 +25,9 @@ public class MainPresenter implements MainContract.Presenter {
         this.view = view;
     }
 
-    public MainPresenter(
-            MainContract.View view,
-            GithubRepository repository
-    ) {
 
-        this.view = view;
-        this.repository = repository;
-    }
 
+    
     @Override
     public void loadRepositories(int page) {
 

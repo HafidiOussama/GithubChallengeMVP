@@ -94,7 +94,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return data.size();
     }
 
-    static class RepoViewHolder extends RecyclerView.ViewHolder {
+    static class  RepoViewHolder extends RecyclerView.ViewHolder {
         TextView name, description, author, stars;
         ImageView avatar;
 
